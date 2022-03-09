@@ -27,6 +27,11 @@ int main() {
                 db.AddEvent(date, event);
                 break;
             case DEL:
+                if (!event.name.empty()) {
+                    db.DeleteEvent(date, event);
+                } else {
+                    db.DeleteEvent(date);
+                }
                 break;
             case FIND:
 //                db.FindEvent(date);

@@ -32,3 +32,17 @@ void DataBase::Print() const {
         }
     }
 }
+
+bool DataBase::DeleteEvent(const Date& date, const Event& event) {
+    if (data_base.contains(date)) {
+        data_base[date].erase(event);
+    }
+
+}
+
+
+bool DataBase::DeleteEvent(const Date& date) {
+    if (data_base.contains(date)) {
+        data_base.erase(date);
+    }
+}

@@ -20,6 +20,7 @@ Actions proceed(const string& action);
 class DataBase {
 public:
     void AddEvent(const Date& date, const Event& event);
+    bool DeleteEvent(const Date& date, const Event& event);
     bool DeleteEvent(const Date& date);
     int DeleteDate(const Date& date);
     Event FindEvent(const Date& date) const;
