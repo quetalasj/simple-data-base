@@ -20,6 +20,7 @@ public:
     void SetMonth(const string& month);
     void SetDay(const string& day);
     bool operator<(const Date& other) const;
+    bool operator==(const Date& other) const;
     string ToStr() const;
 private:
     string year ;

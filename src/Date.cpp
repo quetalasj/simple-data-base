@@ -41,6 +41,13 @@ bool Date::operator<(const Date &other) const {
     }
 }
 
+bool Date::operator==(const Date &other) const {
+    bool equal_year = stoi(year) == stoi(other.year);
+    bool equal_month = stoi(month) == stoi(other.month);
+    bool equal_day = stoi(day) == stoi(other.day);
+    return equal_year && equal_month && equal_day;
+}
+
 void Date::SetYear(const string& year) {
     this->year = year;
 }

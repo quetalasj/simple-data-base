@@ -21,20 +21,24 @@ int main() {
         Event event(parser.event);
 
         Actions action = proceed(parser.action);
-//        cout << date.ToStr() << endl;
         switch (action) {
             case ADD:
                 db.AddEvent(date, event);
                 break;
             case DEL:
                 if (!event.name.empty()) {
-                    db.DeleteEvent(date, event);
+                    bool deletion_status = db.DeleteEvent(date, event);
+                    if (deletion_status) {
+                        cout << "Deleted successfully" << endl;
+                    } else {
+                        cout << "Event not found" << endl;
+                    }
                 } else {
-                    db.DeleteEvent(date);
+                    cout << "Deleted "<< db.DeleteDate(date) << " events"<< endl;
                 }
                 break;
             case FIND:
-//                db.FindEvent(date);
+                db.FindEvents(date);
                 break;
             case PRINT:
                 db.Print();

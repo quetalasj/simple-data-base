@@ -41,8 +41,20 @@ bool DataBase::DeleteEvent(const Date& date, const Event& event) {
 }
 
 
-bool DataBase::DeleteEvent(const Date& date) {
+int DataBase::DeleteDate(const Date& date) {
+    int n = 0;
     if (data_base.contains(date)) {
+        n = data_base[date].size();
         data_base.erase(date);
+    }
+    return n;
+}
+
+void DataBase::FindEvents(const Date& date) const {
+    if (data_base.contains(date)) {
+        set<Event> events = data_base.at(date);
+        for (const auto& event : events) {
+            cout << event.name << endl;
+        }
     }
 }

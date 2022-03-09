@@ -21,9 +21,8 @@ class DataBase {
 public:
     void AddEvent(const Date& date, const Event& event);
     bool DeleteEvent(const Date& date, const Event& event);
-    bool DeleteEvent(const Date& date);
     int DeleteDate(const Date& date);
-    Event FindEvent(const Date& date) const;
+    void FindEvents(const Date& date) const;
     void Print() const;
 private:
     map<Date, set<Event>> data_base;
